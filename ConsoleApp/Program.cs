@@ -1,45 +1,50 @@
 ﻿// See https://aka.ms/new-console-template for more information
 
 Console.WriteLine("Hello, World!");
+//Los productos estan heredando del supermercado, supermercado no puede heredar de productos
+var supermercado = new Supermercados();
+Supermercados supermercado1 = new Supermercados();
+Supermercados supermercado2=new ProductosSupermercado();
 
-Supermercados supermercado = new ProductosSupermercado();//Los productos estan heredando del supermercado, supermercado no puede heredar de productos
-var supermercado1 = new Supermercados();
-ProductosSupermercado persona2 = new ProductosSupermercado();
-Supermercados persona3 = persona2;
 
 supermercado.NIT = 123;
 supermercado.Nombre = "OR";
 supermercado.Ingresos = 100.5m;
-supermercado.EstaAbierto = false;
+supermercado.EstaAbierto = true;
 supermercado.FechaCreacion = DateTime.Now;
-supermercado.Perecedero = new Perecederos() { NIT = 123, EsPerecedero = "Perecedero" };
-supermercado.NoPerecedero = new List<NoPerecederos>();
-supermercado.NoPerecedero.Add(new Noperecedero() { NIT = 23, });
-console.WriteLine(supermercado.Nombre);
-console.WriteLine(supermercado.Perecedero.EsPerecedero);
+supermercado.perecedero = new Perecederos() { NIT = 00, EsPerecedero = "Si" };
+supermercado.NoPerecederos = new List<NoPerecederos>();
+supermercado.NoPerecederos.Add(new NoPerecederos() { NIT = 23, NombreNPer="Carne" });
+Console.WriteLine(supermercado.Nombre);
+Console.WriteLine(supermercado.perecedero.NIT);
+
+foreach (var NIT in supermercado.NoPerecederos)
+{
+    Console.WriteLine(NIT.NIT);
+}
 
 
 public class Perecederos
 {
-    public int NIT;
-    public String? EsPerecedero;
+    public int NIT = 0;
+    public String? EsPerecedero = "";
 
 }
 public class NoPerecederos
 {
-    public int NIT;
-    public String? NombreNPer;
+    public int NIT=0;
+    public String? NombreNPer="";
 
 }
 public class Supermercados
 {
-    public int NIT;
-    public String? Nombre;
-    public decimal Ingresos;
-    public bool EstaAbierto;
-    public DateTime FechaCreacion;
-    public List<NoPerecederos>? NoPerecedero;
-    public String? Perecedero;
+    public int NIT=0;
+    public String? Nombre="";
+    public decimal Ingresos=0.0m;
+    public bool EstaAbierto=false;
+    public DateTime FechaCreacion=DateTime.Now;
+    public List<NoPerecederos> NoPerecederos=new List<NoPerecederos>();
+    public Perecederos perecedero=new Perecederos();
 
 }
 public class ProductosSupermercado: Supermercados
