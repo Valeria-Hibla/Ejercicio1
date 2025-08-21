@@ -1,18 +1,32 @@
 ﻿// See https://aka.ms/new-console-template for more information
 Console.WriteLine("Hello, World!");
+Supermercados supermercado = new Supermercados();
+supermercado.NIT = 123;
+supermercado.Nombre = "OR";
+supermercado.Ingresos = 100.5m;
+supermercado.EstaAbierto = false;
+supermercado.FechaCreacion = DateTime.Now;
+supermercado.perecedero = new Perecederos() { NIT = 123, EsPerecedero = "Perecedero" };
+
 public class Perecederos
 {
-    public int Codigo;
-    public bool EsPerecedero;
+    public int NIT;
+    public String? EsPerecedero;
 
 }
-public class ProductosSupermercado
+public class Supermercados
 {
-    public int Codigo;
+    public int NIT;
     public String? Nombre;
-    public decimal Precio;
-    public bool EstaDispononible;
-    public DateTime FechaVencimiento;
+    public decimal Ingresos;
+    public bool EstaAbierto;
+    public DateTime FechaCreacion;
     public Perecederos? perecedero;
+
+}
+public class ProductosSupermercado: Supermercados
+{ 
+    public String? NombreP;
+ 
 
 }
